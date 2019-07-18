@@ -1,12 +1,14 @@
 const knex = require('knex');
+const db = knex(require('../knexfile').development);
 
-const db = knex({
-    client: 'sqlite3',
-    connection: {
-      filename: './data/test.db',
-    },
-    useNullAsDefault: true,
-});
+// ---- used for test.db ----
+// const db = knex({
+//     client: 'sqlite3',
+//     connection: {
+//       filename: './data/test.db',
+//     },
+//     useNullAsDefault: true,
+// });
 
 function getRecipes() {
     return db('recipes');
